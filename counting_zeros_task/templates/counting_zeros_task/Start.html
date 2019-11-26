@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Start Page - Counting Zeros Task
+{% endblock %}
+
+{% block content %}
+    <p><strong>Instructions:</strong></p>
+
+    <p> This is a counting zeros game.  You will be given two minutes.  Quickly and accurately count the number of zeros
+that appear in the following paragraphs.  Count as many paragraphs as you can before the two minutes run out.  You will be rewarded for each paragraph that you count correctly.</p>
+
+    <p> These instructions will be repeated on every page for your convenience. Press the button when you are ready to start. </p>
+
+    {% next_button %}
+
+
+{% endblock %}

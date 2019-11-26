@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <strong> Round {{ subsession.round_number }} of {{ Constants.num_rounds }} </strong> - Counting Zeros Task
+{% endblock %}
+
+{% block content %}
+    <p><strong>Instructions:</strong></p>
+
+    <p> This is a counting zeros game.  You will be given two minutes.  Quickly and accurately count the number of zeros
+that appear in the following paragraphs.  Count as many paragraphs as you can before time runs out.  You will be rewarded for each paragraph that you count correctly.</p>
+
+<img src="{% static image_path %}"/>
+
+
+    {% formfields %}
+    {% next_button %}
+
+
+{% endblock %}
