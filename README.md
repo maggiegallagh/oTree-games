@@ -1,5 +1,5 @@
-# oTree-games-counting-zeros
-oTree code for counting zeros
+# oTree-games
+oTree code for counting zeros, slider task, stroop task, survey, and consent form
 
 
 
