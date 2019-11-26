@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Start Page - Stroop Task
+{% endblock %}
+
+{% block content %}
+    <p> <strong> Instructions: </strong></p>
+    <p> This is the stroop task game...  [instructions].</p>
+
+
+    <p> These instructions will be repeated on every page for your convenience.  Press the button when you are ready to begin. </p>
+    {% next_button %}
+
+{% endblock %}

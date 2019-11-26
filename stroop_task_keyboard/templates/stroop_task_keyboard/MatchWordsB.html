@@ -1,0 +1,93 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <strong> Round {{ subsession.round_number }} of {{ Constants.num_rounds }} </strong> - Stroop Task
+{% endblock %}
+
+{% block content %}  Respond by typing the color, regardless of the text actually displayed... [instructions] </p>
+
+    <p>This is a stroop task game.  You will be given several words.
+        <h1><font color = green> {{ text_displayed_this_round.0 }} </font></h1>
+        <br/>
+        {% formfield player.word1 %}
+
+        <h1> <font color = red> {{ text_displayed_this_round.1 }} </font></h1>
+        <br/>
+        {% formfield player.word2 %}
+
+        <h1> <font color = blue>{{ text_displayed_this_round.2 }} </font></h1>
+        <br/>
+        {% formfield player.word3 %}
+
+        <h1> <font color = green> {{ text_displayed_this_round.3 }} </font></h1>
+        <br/>
+        {% formfield player.word4 %}
+
+        <h1> <font color = purple> {{ text_displayed_this_round.4 }} </font></h1>
+        <br/>
+        {% formfield player.word5 %}
+
+        <h1> <font color = red> {{ text_displayed_this_round.5 }} </font></h1>
+        <br/>
+        {% formfield player.word6 %}
+
+        <h1> <font color = green> {{ text_displayed_this_round.6 }} </font></h1>
+        <br/>
+        {% formfield player.word7 %}
+
+        <h1> <font color = blue> {{ text_displayed_this_round.7 }} </font></h1>
+        <br/>
+        {% formfield player.word8 %}
+
+        <h1> <font color = green> {{ text_displayed_this_round.8 }} </font></h1>
+        <br/>
+        {% formfield player.word9 %}
+
+        <h1> <font color = green> {{ text_displayed_this_round.9 }} </font></h1>
+        <br/>
+        {% formfield player.word10 %}
+
+        <h1><font color = red> {{ text_displayed_this_round.10 }} </font></h1>
+        <br/>
+        {% formfield player.word11 %}
+
+        <h1> <font color = blue> {{ text_displayed_this_round.11 }} </font></h1>
+        <br/>
+        {% formfield player.word12 %}
+
+        <h1> <font color = red>{{ text_displayed_this_round.12 }} </font></h1>
+        <br/>
+        {% formfield player.word13 %}
+
+        <h1> <font color = blue> {{ text_displayed_this_round.13 }} </font></h1>
+        <br/>
+        {% formfield player.word14 %}
+
+        <h1> <font color = purple> {{ text_displayed_this_round.14 }} </font></h1>
+        <br/>
+        {% formfield player.word15 %}
+
+        <h1> <font color = purple> {{ text_displayed_this_round.15 }} </font></h1>
+        <br/>
+        {% formfield player.word16 %}
+
+        <h1> <font color = green> {{ text_displayed_this_round.16 }} </font></h1>
+        <br/>
+        {% formfield player.word17 %}
+
+        <h1> <font color = red> {{ text_displayed_this_round.17 }} </font></h1>
+        <br/>
+        {% formfield player.word18 %}
+
+        <h1> <font color = blue> {{ text_displayed_this_round.18 }} </font></h1>
+        <br/>
+        {% formfield player.word19 %}
+
+        <h1> <font color = purple> {{ text_displayed_this_round.19 }} </font></h1>
+        <br/>
+        {% formfield player.word20 %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Start Page - Slider Task
+{% endblock %}
+
+{% block content %}
+    <p> <strong> Instructions: </strong></p>
+    <p> This is a slider task game.  You will be given a number and a slider.  Use your mouse to click and drag the slider to match the given number.  Move on to the next slider.  There are 10 sliders on each page.  You have 2 minutes to complete as many sliders and as many pages as possible.  You will be rewarded for each correct slider you complete within the time limit.</p>
+
+
+    <p> These instructions will be repeated on every page for your convenience.  Press the button when you are ready to begin. </p>
+    {% next_button %}
+
+{% endblock %}
