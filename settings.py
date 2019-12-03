@@ -10,8 +10,6 @@ SESSION_CONFIG_DEFAULTS = dict(
     participation_fee=0.00,
     doc=""
 )
-
-SESSION_CONFIGS = [
     # dict(
     #     keywords='bonus, study',
     #     title='Title for your experiment',
@@ -23,6 +21,9 @@ SESSION_CONFIGS = [
     #     qualification_requirements=[]
     #     # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
     # ),
+
+SESSION_CONFIGS = [
+
     # dict(
     #     name='public_goods',
     #     display_name="Public Goods",
