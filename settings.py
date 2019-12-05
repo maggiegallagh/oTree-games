@@ -138,7 +138,7 @@ Here are some oTree games.
 SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree', 'slider_task']
+INSTALLED_APPS = ['otree', 'sliders_task']
 
 # inactive session configs
 ### dict(name='trust', num_demo_participants=2, app_sequence=['trust']),
