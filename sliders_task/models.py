@@ -98,7 +98,7 @@ class Player(BasePlayer):
     slider9 = models.IntegerField(widget=widgets.Slider, min=0, max=100, initial=random.randint(0, 100), label="")
     slider10 = models.IntegerField(widget=widgets.Slider, min=0, max=100, initial=random.randint(0, 100), label="")
 
-    payoff = models.CurrencyField()
+    # payoff = models.CurrencyField()
     total_sliders_correct = models.IntegerField(initial=0)
 
     def role(self):
