@@ -8,21 +8,22 @@ from os import environ
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00,
     participation_fee=0.00,
-    doc=""
+    doc="",
+    mturk_hit_settings = dict(
+        keywords='bonus, study',
+        title='Title for your experiment',
+        description='Description for your experiment',
+        frame_height=500,
+        template='global/mturk_template.html',
+        minutes_allotted_per_assignment=60,
+        expiration_hours=7 * 24,
+        qualification_requirements=[]
+        # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
+    ),
 )
 
 SESSION_CONFIGS = [
-    # dict(
-    #     keywords='bonus, study',
-    #     title='Title for your experiment',
-    #     description='Description for your experiment',
-    #     frame_height=500,
-    #     template='global/mturk_template.html',
-    #     minutes_allotted_per_assignment=60,
-    #     expiration_hours=7 * 24,
-    #     qualification_requirements=[]
-    #     # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
-    # ),
+
     # dict(
     #     name='public_goods',
     #     display_name="Public Goods",
@@ -138,8 +139,9 @@ Here are some oTree games.
 SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree', 'slider_task']
-
+INSTALLED_APPS = ['otree', 'sliders_task']
+AWS_ACCESS_KEY_ID = "AKIAI2WJNYQ25DZL6O2A"
+AWS_SECRET_ACCESS_KEY = "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"
 # inactive session configs
 ### dict(name='trust', num_demo_participants=2, app_sequence=['trust']),
 ### dict(name='prisoner', num_demo_participants=2, app_sequence=['prisoner']),

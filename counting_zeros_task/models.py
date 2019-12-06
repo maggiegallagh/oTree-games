@@ -149,7 +149,7 @@ class Player(BasePlayer):
     count = models.IntegerField(min=0, label="How many zeros are in the table?")
 
     is_winner = models.BooleanField()
-    payoff = models.CurrencyField()
+    # payoff = models.CurrencyField()
 
     total_rounds_correct = models.IntegerField(initial=0)
     current_round_correct_answer = models.IntegerField(initial=0)
