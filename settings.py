@@ -1,5 +1,5 @@
 from os import environ
-from .secrets import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, SECRET_KEY
+from secrets import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, SECRET_KEY
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
