@@ -1,5 +1,4 @@
 from os import environ
-from secrets import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, SECRET_KEY
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
@@ -137,12 +136,12 @@ Here are some oTree games.
 """
 
 # don't share this with anybody.
-SECRET_KEY = SECRET_KEY
+SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree', 'sliders_task']
-AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
+AWS_ACCESS_KEY_ID = ""
+AWS_SECRET_ACCESS_KEY = ""
 # inactive session configs
 ### dict(name='trust', num_demo_participants=2, app_sequence=['trust']),
 ### dict(name='prisoner', num_demo_participants=2, app_sequence=['prisoner']),
