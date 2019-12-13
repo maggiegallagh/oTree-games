@@ -1,9 +1,7 @@
-from otree.api import Currency as c, currency_range
+import time
 
 from ._builtin import Page, WaitPage
-from .models import Constants, Player
-
-import time
+from .models import Constants
 
 
 class Start(Page):
@@ -14,6 +12,7 @@ class Start(Page):
         # user has 2 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + .10 * 60
 
+
 class StartRoundTwo(Page):
     def is_displayed(self):
         return self.round_number == 11
@@ -21,6 +20,7 @@ class StartRoundTwo(Page):
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + .10 * 60
+
 
 class zeroCount(Page):
     form_model = 'player'
@@ -37,36 +37,39 @@ class zeroCount(Page):
     def vars_for_template(self):
         if (self.participant.vars['treatment_group'] == "A" and self.round_number < 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(self.round_number)
-             )
+                image_path='counting_zeros_task/{}.png'.format(self.round_number)
+            )
         if (self.participant.vars['treatment_group2'] == "A" and self.round_number >= 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(self.round_number-10)
-             )
-
+                image_path='counting_zeros_task/{}.png'.format(self.round_number - 10)
+            )
 
         if (self.participant.vars['treatment_group'] == "B" and self.round_number < 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(10 + self.round_number)
-             )
+                image_path='counting_zeros_task/{}.png'.format(10 + self.round_number)
+            )
         if (self.participant.vars['treatment_group2'] == "B" and self.round_number >= 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(self.round_number)
-             )
-
+                image_path='counting_zeros_task/{}.png'.format(self.round_number)
+            )
 
         if (self.participant.vars['treatment_group'] == "C" and self.round_number < 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(20 + self.round_number)
-             )
+                image_path='counting_zeros_task/{}.png'.format(20 + self.round_number)
+            )
         if (self.participant.vars['treatment_group2'] == "C" and self.round_number >= 11):
             return dict(
-               image_path='counting_zeros_task/{}.png'.format(10 + self.round_number)
-             )
+                image_path='counting_zeros_task/{}.png'.format(10 + self.round_number)
+            )
 
 
 class ResultsWaitPage(WaitPage):
+    def is_displayed(self):
+        return self.group.get_players().__eq__(1)
+
     def after_all_players_arrive(self):
+        self.wait_for_all_groups = False
+
         self.group.check_count()
         self.group.count_correct_rounds()
 
