@@ -64,11 +64,11 @@ class zeroCount(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    def is_displayed(self):
-        return self.group.get_players().__eq__(1)
+    # def is_displayed(self):
+    #     return self.group.get_players().__eq__(1)
 
     def after_all_players_arrive(self):
-        self.wait_for_all_groups = False
+        self.timeout_seconds = 5
 
         self.group.check_count()
         self.group.count_correct_rounds()
