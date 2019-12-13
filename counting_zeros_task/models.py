@@ -14,7 +14,8 @@ paragraph that they count correctly. """
 
 class Constants(BaseConstants):
     name_in_url = 'counting_zeros_task'
-    players_per_group = None
+    players_per_group = 1
+    # players_per_group = None
     num_rounds = 20
 
 
