@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   Results
+{% endblock %}
+
+{% block content %}
+
+<p> You played the Summation Grid game and you completed {{ number_of_rounds_played }} rounds. Below are your results. </p>
+
+
+
+<p> You correctly performed sums for {{ rounds_correct }} grids.  Each correct sum receives {{10|c}}. Your total payoff is {{ total_payoff }}. </p>
+
+<p>Your completion code is ECON2020</p>
+
+    {% next_button %}
+{% endblock %}
+
+

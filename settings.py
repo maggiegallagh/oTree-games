@@ -25,12 +25,12 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
 
-    # dict(
-    #     name='public_goods',
-    #     display_name="Public Goods",
-    #     num_demo_participants=3,
-    #     app_sequence=['public_goods', 'payment_info']
-    # ),
+    dict(
+        name='summation_grid_task',
+        display_name="Summation Grid",
+        num_demo_participants=1,
+        app_sequence=['summation_grid_task']
+    ),
     # dict(
     #     #     name='guess_two_thirds',
     #     #     display_name="Guess 2/3 of the Average",
