@@ -146,27 +146,12 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# MY_DIR = os.path.dirname(os.path.dirname(__file__))
-#
-#
-# # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT = '/tmp/static/'#os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     '/tmp/static'
-#     # os.path.join(BASE_DIR, 'staticfiles'),
-#     # os.path.join(BASE_DIR, 'static'),
-#     # os.path.join(BASE_DIR, 'static_root'),
-# )
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'app/staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'app/staticfiles'),
-    os.path.join(BASE_DIR, 'app/static_root'),
+    os.path.join(BASE_DIR, "static"),
 )
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
