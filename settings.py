@@ -10,7 +10,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00,
     participation_fee=0.00,
     doc="",
-    mturk_hit_settings = dict(
+    mturk_hit_settings=dict(
         keywords='bonus, study',
         title='Title for your experiment',
         description='Description for your experiment',
@@ -58,7 +58,7 @@ SESSION_CONFIGS = [
         name='counting_zeros_task',
         display_name="Counting Zeros Task",
         num_demo_participants=1,
-        app_sequence=['consent_form', 'counting_zeros_task','survey']
+        app_sequence=['consent_form', 'counting_zeros_task', 'survey']
     ),
     dict(
         name='consent_form',
@@ -140,9 +140,23 @@ Here are some oTree games.
 SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree',
+                  'django.contrib.staticfiles']
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, '_static')
+STATIC_URL = '/_static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # inactive session configs
 ### dict(name='trust', num_demo_participants=2, app_sequence=['trust']),
 ### dict(name='prisoner', num_demo_participants=2, app_sequence=['prisoner']),

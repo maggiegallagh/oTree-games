@@ -71,7 +71,6 @@ class ResultsWaitPage(WaitPage):
         return self.get_timeout_seconds() > 5
 
     def after_all_players_arrive(self):
-        # self.timeout_seconds = 5
 
         self.group.check_count()
         self.group.count_correct_rounds()
