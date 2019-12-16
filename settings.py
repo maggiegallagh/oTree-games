@@ -130,27 +130,28 @@ ROOMS = [
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = 'economics2019!'#environ.get('OTREE_ADMIN_PASSWORD')
 
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
 
 # don't share this with anybody.
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'#os.environ.get('SECRET_KEY')
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree',
                   'django.contrib.staticfiles']
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = 'AKIAUR4FCSWIOMB6ZVFU'#os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = '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'#os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, '__temp_static_root')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static_root'),
 )
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
