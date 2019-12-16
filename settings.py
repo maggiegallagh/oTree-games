@@ -149,6 +149,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '__temp_static_root'),
     os.path.join(BASE_DIR, 'static_root'),
 )
 MIDDLEWARE_CLASSES = (
