@@ -52,83 +52,83 @@ class Group(BaseGroup):
         for p in self.get_players():
             if self.round_number < 11:
                 if p.participant.vars['treatment_group'] == "A":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyA"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyA"][self.round_number-1])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyA"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyA"][self.round_number-1])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyA"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyA"][self.round_number - 1]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyA"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyA"][self.round_number - 1]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
                 if p.participant.vars['treatment_group'] == "B":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyB"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyB"][self.round_number-1])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyB"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyB"][self.round_number-1])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyB"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyB"][self.round_number - 1]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyB"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyB"][self.round_number - 1]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
                 if p.participant.vars['treatment_group'] == "C":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyC"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyC"][self.round_number-1])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyC"][self.round_number-1], " + ", self.session.vars["correct_sum_component2_keyC"][self.round_number-1])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyC"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyC"][self.round_number - 1]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyC"][self.round_number - 1] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyC"][self.round_number - 1]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
             if self.round_number >= 21:
                 if p.participant.vars['treatment_group2'] == "A":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyA"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyA"][self.round_number - 21])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyA"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyA"][self.round_number - 21])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyA"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyA"][self.round_number - 21]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyA"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyA"][self.round_number - 21]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
                 if p.participant.vars['treatment_group2'] == "B":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyB"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyB"][self.round_number - 21])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyB"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyB"][self.round_number - 21])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyB"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyB"][self.round_number - 21]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyB"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyB"][self.round_number - 21]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
                 if p.participant.vars['treatment_group2'] == "C":
-                    print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyC"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyC"][self.round_number - 21])
+                    # print('Sum ', self.round_number, ' answer key is', self.session.vars["correct_sum_component1_keyC"][self.round_number - 21], " + ", self.session.vars["correct_sum_component2_keyC"][self.round_number - 21])
                     if (counter.sum_component1 == self.session.vars["correct_sum_component1_keyC"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component2_keyC"][self.round_number - 21]) or (counter.sum_component1 == self.session.vars["correct_sum_component2_keyC"][self.round_number - 21] and counter.sum_component2 == self.session.vars["correct_sum_component1_keyC"][self.round_number - 21]):
                         counter.is_winner = True
                         counter.payoff = c(10)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is correct. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is correct. Counter.payoff is", counter.payoff, '\n')
                     else:
                         counter.is_winner = False
                         counter.payoff = c(0)
-                        print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
-                        print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
+                        # print("Player entered:  ", counter.sum_component1, " + ", counter.sum_component2)
+                        # print("Player is incorrect. Counter.payoff is", counter.payoff, '\n')
 
     def count_correct_rounds(self):
         counter = self.get_player_by_role('Counter')
@@ -140,7 +140,7 @@ class Group(BaseGroup):
                 counter.total_rounds_correct = counter.in_round(self.round_number - 1).total_rounds_correct + 1
             else:
                 counter.total_rounds_correct = counter.in_round(self.round_number - 1).total_rounds_correct
-        print('counter.total_rounds_correct is', counter.total_rounds_correct)
+        # print('counter.total_rounds_correct is', counter.total_rounds_correct)
 
 
 class Player(BasePlayer):

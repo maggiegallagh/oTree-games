@@ -12,7 +12,7 @@ class Start(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 2.0 * 60
+        self.participant.vars['expiry'] = time.time() + 0.20 * 60
 
 class StartRoundTwo(Page):
     def is_displayed(self):
@@ -20,7 +20,7 @@ class StartRoundTwo(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 2.0 * 60
+        self.participant.vars['expiry'] = time.time() + 0.20 * 60
 
 class SummationGrid(Page):
     form_model = 'player'
