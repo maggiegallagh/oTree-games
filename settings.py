@@ -152,9 +152,10 @@ MY_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = '/tmp/static/'#os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'staticfiles'),
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'static_root'),
+    '/tmp/static'
+    # os.path.join(BASE_DIR, 'staticfiles'),
+    # os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static_root'),
 )
 MIDDLEWARE_CLASSES = (
     # Simplified static file serving.
