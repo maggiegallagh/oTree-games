@@ -316,7 +316,7 @@ class Player(BasePlayer):
     word20 = models.StringField(label="")
 
     treatment_group = models.StringField()
-    payoff = models.CurrencyField()
+    # payoff = models.CurrencyField()
     total_words_correct = models.IntegerField(initial=0)
 
     def role(self):
