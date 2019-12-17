@@ -10,7 +10,7 @@ class Start(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + .10 * 60
+        self.participant.vars['expiry'] = time.time() + .20 * 60
 
 
 class StartRoundTwo(Page):
@@ -19,7 +19,7 @@ class StartRoundTwo(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + .10 * 60
+        self.participant.vars['expiry'] = time.time() + .20 * 60
 
 
 class zeroCount(Page):
