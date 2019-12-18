@@ -64,6 +64,9 @@ class zeroCount(Page):
 
 
 class ResultsWaitPage(WaitPage):
+    def __init__(self):
+        self.timeout_seconds = 5
+
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
 
@@ -71,7 +74,6 @@ class ResultsWaitPage(WaitPage):
         return self.get_timeout_seconds() > 5
 
     def after_all_players_arrive(self):
-
         self.group.check_count()
         self.group.count_correct_rounds()
 
