@@ -65,7 +65,7 @@ class zeroCount(Page):
 
 class ResultsWaitPage(WaitPage):
     def __init__(self):
-        self.timeout_seconds = 8
+        self.timeout_seconds = 5
 
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
