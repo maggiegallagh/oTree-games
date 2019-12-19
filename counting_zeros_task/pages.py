@@ -81,7 +81,6 @@ class zeroCount(Page):
 
 
 class Results(Page):
-    print("displaying results page")
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
