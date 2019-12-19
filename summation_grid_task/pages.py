@@ -65,10 +65,14 @@ class SummationGrid(Page):
              )
 
 
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
+    def before_next_page(self):
         self.group.check_sum()
         self.group.count_correct_rounds()
+
+# class ResultsWaitPage(WaitPage):
+#     def after_all_players_arrive(self):
+#         self.group.check_sum()
+#         self.group.count_correct_rounds()
 
 
 class Results(Page):
@@ -88,6 +92,6 @@ page_sequence = [
     Start,
     StartRoundTwo,
     SummationGrid,
-    ResultsWaitPage,
+    # ResultsWaitPage,
     Results,
 ]
