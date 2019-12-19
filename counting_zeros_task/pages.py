@@ -62,21 +62,26 @@ class zeroCount(Page):
                 image_path='counting_zeros_task/{}.png'.format(10 + self.round_number)
             )
 
-
-class ResultsWaitPage(WaitPage):
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 5
-
-    def after_all_players_arrive(self):
-
+    def before_next_page(self):
         self.group.check_count()
         self.group.count_correct_rounds()
 
 
+# class ResultsWaitPage(WaitPage):
+#     def get_timeout_seconds(self):
+#         return self.participant.vars['expiry'] - time.time()
+#
+#     def is_displayed(self):
+#         return self.get_timeout_seconds() > 5
+#
+#     def after_all_players_arrive(self):
+#
+#         self.group.check_count()
+#         self.group.count_correct_rounds()
+
+
 class Results(Page):
+    print("displaying results page")
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
@@ -93,6 +98,6 @@ page_sequence = [
     Start,
     StartRoundTwo,
     zeroCount,
-    ResultsWaitPage,
+    # ResultsWaitPage,
     Results,
 ]

@@ -39,10 +39,12 @@ class Sliders(Page):
             slider_goals_this_round=self.session.vars['slider_goals' + str(self.round_number)],
         )
 
-
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
+    def before_next_page(self):
         self.group.check_slider_answers()
+
+# class ResultsWaitPage(WaitPage):
+#     def after_all_players_arrive(self):
+#         self.group.check_slider_answers()
 
 
 class Results(Page):
@@ -61,6 +63,6 @@ page_sequence = [
     Start,
     StartRoundTwo,
     Sliders,
-    ResultsWaitPage,
+    # ResultsWaitPage,
     Results
 ]

@@ -169,11 +169,13 @@ class ConflictWordsC(Page):
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
 
-
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
+    def before_next_page(self):
         self.group.check_color_answers()
 
+# class ResultsWaitPage(WaitPage):
+#     def after_all_players_arrive(self):
+#         self.group.check_color_answers()
+#
 
 class Results(Page):
     def is_displayed(self):
@@ -199,6 +201,6 @@ page_sequence = [
     ConflictWordsA,
     ConflictWordsB,
     ConflictWordsC,
-    ResultsWaitPage,
+    # ResultsWaitPage,
     Results
 ]

@@ -47,7 +47,9 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def check_count(self):
+
         counter = self.get_player_by_role('Counter')
+        print("counting rounds ", counter)
         for p in self.get_players():
             if self.round_number < 11:
                 if p.participant.vars['treatment_group'] == "A":
@@ -133,6 +135,7 @@ class Group(BaseGroup):
 
 
     def count_correct_rounds(self):
+        print("counting rounds ")
         counter = self.get_player_by_role('Counter')
         if self.round_number == 1:
             if counter.is_winner:
