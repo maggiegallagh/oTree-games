@@ -7,8 +7,141 @@
 
 {% block content %}
 
-<p> You played the Stroop Task game.  Below are your results. </p>
+<p> You played the Stroop game and you completed 2 rounds. Below are your results. </p>
 
+
+<h4> Round History </h4>
+<table class = "table">
+    <tr>
+        <th>Round</th>
+        <th>Player Answer</th>
+        <th>Outcome</th>
+    </tr>
+    {% for p in player_in_all_rounds %}
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word1 }}</td>
+            <td>{% if word_correct.0 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word2 }}</td>
+            <td>{% if word_correct.1 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word3 }}</td>
+            <td>{% if word_correct.2 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word4 }}</td>
+            <td>{% if word_correct.3 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word5 }}</td>
+            <td>{% if word_correct.4 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word6 }}</td>
+            <td>{% if word_correct.5 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word7 }}</td>
+            <td>{% if word_correct.6 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word8 }}</td>
+            <td>{% if word_correct.7 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word9 }}</td>
+            <td>{% if word_correct.8 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word10 }}</td>
+            <td>{% if word_correct.9 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word11 }}</td>
+            <td>{% if word_correct.10 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word12 }}</td>
+            <td>{% if word_correct.11 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word13 }}</td>
+            <td>{% if word_correct.12 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word14 }}</td>
+            <td>{% if word_correct.13 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word15 }}</td>
+            <td>{% if word_correct.14 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word16 }}</td>
+            <td>{% if word_correct.15 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word17 }}</td>
+            <td>{% if word_correct.16 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word18 }}</td>
+            <td>{% if word_correct.17 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word19 }}</td>
+            <td>{% if word_correct.18 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+        <tr>
+            <td>{% if p.round_number < 4 %} 1 {% else %} 2 {% endif %} </td>
+            <td>{{ p.word20 }}</td>
+            <td>{% if word_correct.19 %} Correct {% else %} Incorrect {% endif %}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+
+<p> You correctly submitted {{ total_words_correct }} Stroop problems.  Each correct answer receives {{10|c}}. Your total payoff is {{ total_payoff }}. </p>
 
     {% next_button %}
 {% endblock %}

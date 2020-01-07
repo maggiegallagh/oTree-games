@@ -205,13 +205,13 @@ class Results(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
-    # def vars_for_template(self):
-    #     return dict(
-    #         player_in_all_rounds=self.player.in_all_rounds(),
-    #         total_sliders_correct=sum([p.total_sliders_correct for p in self.player.in_all_rounds()]),
-    #         total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
-    #     )
-
+    def vars_for_template(self):
+        return dict(
+            total_words_correct=sum([p.total_words_correct for p in self.player.in_all_rounds()]),
+            total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
+            player_in_all_rounds=self.player.in_all_rounds(),
+            word_correct=self.session.vars["word_correct_round" + str(self.round_number)]
+        )
 
 page_sequence = [
     Start,
