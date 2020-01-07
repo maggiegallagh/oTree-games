@@ -4,7 +4,11 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class ConsentForm(Page):
+class ConsentForm1(Page):
+    form_model = 'player'
+    form_fields = []
+
+class ConsentForm2(Page):
     form_model = 'player'
     form_fields = ['agree', 'email']
 
@@ -14,5 +18,6 @@ class ConsentForm(Page):
 
 
 page_sequence = [
-    ConsentForm
+    ConsentForm1,
+    ConsentForm2
 ]

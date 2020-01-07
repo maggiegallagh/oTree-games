@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<center><strong> Informed Consent Form </strong></center>
+{% endblock %}
+
+{% block content %}
+<br/>
+
+<p>1) 	I hereby authorize Drs. Prachi Jain, Ph.D. and Michelle M. Miller, Ph.D. to include me in the following research study: An Experiment in Economic-Decision Making. </p>
+<br/>
+
+<p>2) 	I have been asked to participate on a research project which is designed to test economic decision-making and which will last at most 1 hour.</p>
+<br/>
+
+<p>3) 	I understand that the study described above involves no deception, no discomfort, and no risk. </p>
+<br/>
+
+<p>4) 	I also understand that the possible benefits of the study are that I will earn money and that this exposure to economic principles may inspire further interest in the field.  </p>
+<br/>
+
+<p>5)	I understand that Drs. Prachi Jain and Michelle Miller who can be reached at Prachi.Jain@lmu.edu or Michelle.Miller@lmu.edu will answer any questions I may have at any time concerning details of the procedures performed as part of this study.</p>
+<br/>
+
+<p>6)	If the study design or the use of the information is to be changed, I will be so informed and my consent reobtained.</p>
+<br/>
+
+<p>7)	I understand that I have the right to refuse to participate in, or to withdraw from this research at any time without prejudice.</p>
+<br/>
+
+<p>8)	I understand that no information that identifies me will be released without my separate consent except as specifically required by law.</p>
+<br/>
+
+<p>9)	I understand that I have the right to refuse to answer any question that I may not wish to answer. </p>
+<br/>
+
+<p>10)	I understand that if I have any further questions, comments, or concerns about the study or the informed consent process, I may contact David Moffet, Ph.D. Chair, Institutional Review Board, 1 LMU Drive, Suite 3000, Loyola Marymount University, Los Angeles CA 90045-2659 at david.moffet@lmu.edu. </p>
+<br/>
+
+<p>11)	In signing this consent form, I acknowledge receipt of a copy of the form, and a copy of the "Subject's Bill of Rights".</p>
+<br/><br/>
+
+<center>{% formfields %}</center>
+    {% next_button %}
+
+{% endblock %}
