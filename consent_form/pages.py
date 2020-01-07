@@ -6,7 +6,11 @@ from .models import Constants
 
 class ConsentForm(Page):
     form_model = 'player'
-    form_fields = ['verify_age', 'agree', 'email']
+    form_fields = ['agree', 'email']
+
+    def app_after_this_page(self, upcoming_apps):
+        if self.player.agree == False:
+            return "cannot_participate"
 
 
 page_sequence = [

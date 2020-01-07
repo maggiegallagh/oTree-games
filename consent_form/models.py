@@ -20,6 +20,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    verify_age = models.BooleanField(label="", widget=widgets.RadioSelect, choices=[[True, "I verify that I am 18 years or older."]])
-    agree = models.BooleanField(label="", widget=widgets.RadioSelect, choices=[[True, "I agree to participate in the study."]])
+    agree = models.BooleanField(label="", widget=widgets.RadioSelect, choices=[[True, "I verify that I am 18 years or older and I agree to participate in the study."], [False, "I do not meet criteria or I decline to consent."]])
     email = models.StringField(label="Please enter your email for an electronic copy of this agreement:")
