@@ -210,7 +210,6 @@ class Results(Page):
             total_words_correct=sum([p.total_words_correct for p in self.player.in_all_rounds()]),
             total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
             player_in_all_rounds=self.player.in_all_rounds(),
-            # word_correct=self.session.vars["word_correct_round" + str(self.round_number)]
         )
 
 page_sequence = [
