@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Start Page - Summation Grid Task
+{% endblock %}
+
+{% block content %}
+    <p><strong>Instructions:</strong></p>
+
+<p> You will now play the same game for a second round.  The instructions are the same.</p>
+
+    <p>This is a summation grid game.  Pick the two numbers that exactly sum to 10.0. </p>
+
+    <p> These instructions will be repeated on every page for your convenience. Press the button when you are ready to start. </p>
+
+    {% next_button %}
+
+
+{% endblock %}
