@@ -13,24 +13,20 @@
 <table class = "table">
     <tr>
         <th>Round</th>
-        <th>Player Count and Outcome</th>
-        <th>Correct Number</th>
+        <th>Player Answer</th>
+        <th>Outcome</th>
     </tr>
     {% for p in player_in_all_rounds %}
         <tr>
-            <td>{{ p.round_number }}</td>
-            <td>{{ p.count }} / {% if p.is_winner %} Correct {% else %} Incorrect {% endif %}</td>
-            <td>{{ p.current_round_correct_answer }}</td>
+            <td> {% if p.round_number < 21 %} 1 {% else %} 2 {% endif %} </</td>
+            <td> {{ p.sum_component1 }} + {{ p.sum_component2 }} </td>
+            <td> {% if p.is_winner %} Correct {% else %} Incorrect {% endif %} </td>
         </tr>
     {% endfor %}
 </table>
 
 
-
-
-
-
-<p> You correctly performed sums for {{ total_rounds_correct }} grids.  Each correct sum receives {{10|c}}. Your total payoff is {{ total_payoff }}. </p>
+<p> You correctly performed sums for {{ total_rounds_correct }} grids.  Each correct sum receives {{0.10|c}}. Your total payoff is {{ total_payoff }}. </p>
 
 <p>Your completion code is ECON2020</p>
 

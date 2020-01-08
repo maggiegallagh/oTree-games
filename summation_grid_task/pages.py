@@ -12,7 +12,7 @@ class Start(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 0.20 * 60
+        self.participant.vars['expiry'] = time.time() + 0.5 * 60
 
 class StartRoundTwo(Page):
     def is_displayed(self):
@@ -20,7 +20,7 @@ class StartRoundTwo(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 0.20 * 60
+        self.participant.vars['expiry'] = time.time() + 0.5 * 60
 
 class SummationGrid(Page):
     form_model = 'player'
@@ -66,7 +66,7 @@ class SummationGrid(Page):
         
     def before_next_page(self):
         self.group.check_sum()
-        self.group.count_correct_rounds()
+        # self.group.count_correct_rounds()
 
         
 # class ResultsWaitPage(WaitPage):
@@ -81,7 +81,7 @@ class Results(Page):
 
     def vars_for_template(self):
         return dict(
-            total_rounds_correct=self.player.total_rounds_correct,
+            total_rounds_correct=sum([p.this_round_correct for p in self.player.in_all_rounds()]),
             total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
             player_in_all_rounds=self.player.in_all_rounds(),
         )
