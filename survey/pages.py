@@ -9,10 +9,12 @@ class Survey(Page):
     form_fields = ['genderSlider', 'f_name', 'gender', 'age', 'race', 'optional_race', 'address',
                    'degree', 'school_name', 'school_state', 'major', 'collegeGPA', 'HITS']
 
+class CompletionCode(Page):
     def app_after_this_page(self, upcoming_apps):
         return 'thank_you_finished'
 
 
 page_sequence = [
-    Survey
+    Survey,
+    CompletionCode
 ]
