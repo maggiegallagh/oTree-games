@@ -81,8 +81,7 @@ class Results(Page):
 
     def vars_for_template(self):
         return dict(
-            number_of_rounds_played=self.round_number,
-            rounds_correct=self.player.total_rounds_correct,
+            total_rounds_correct=self.player.total_rounds_correct,
             total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
             player_in_all_rounds=self.player.in_all_rounds(),
         )

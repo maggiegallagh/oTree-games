@@ -7,11 +7,30 @@
 
 {% block content %}
 
-<p> You played the Summation Grid game and you completed {{ number_of_rounds_played }} rounds. Below are your results. </p>
+<p> You played the Summation Grid game and you completed 2 rounds. Below are your results. </p>
+
+<h4> Round History </h4>
+<table class = "table">
+    <tr>
+        <th>Round</th>
+        <th>Player Count and Outcome</th>
+        <th>Correct Number</th>
+    </tr>
+    {% for p in player_in_all_rounds %}
+        <tr>
+            <td>{{ p.round_number }}</td>
+            <td>{{ p.count }} / {% if p.is_winner %} Correct {% else %} Incorrect {% endif %}</td>
+            <td>{{ p.current_round_correct_answer }}</td>
+        </tr>
+    {% endfor %}
+</table>
 
 
 
-<p> You correctly performed sums for {{ rounds_correct }} grids.  Each correct sum receives {{10|c}}. Your total payoff is {{ total_payoff }}. </p>
+
+
+
+<p> You correctly performed sums for {{ total_rounds_correct }} grids.  Each correct sum receives {{10|c}}. Your total payoff is {{ total_payoff }}. </p>
 
 <p>Your completion code is ECON2020</p>
 
