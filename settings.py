@@ -41,7 +41,7 @@ SESSION_CONFIGS = [
         name='survey',
         display_name='Survey',
         num_demo_participants=1,
-        app_sequence=['survey']
+        app_sequence=['survey','thank_you_finished']
     ),
     # dict(
     #     name='quiz',
@@ -54,40 +54,40 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['my_simple_survey']
     # ),
-    dict(
-        name='counting_zeros_task',
-        display_name="Counting Zeros Task",
-        num_demo_participants=1,
-        app_sequence=['consent_form', 'counting_zeros_task', 'survey']
-    ),
-    dict(
-        name='consent_form',
-        display_name="Consent Form",
-        num_demo_participants=1,
-        app_sequence=['consent_form']
-    ),
+    # dict(
+    #     name='counting_zeros_task',
+    #     display_name="Counting Zeros Task",
+    #     num_demo_participants=1,
+    #     app_sequence=['consent_form', 'counting_zeros_task', 'survey']
+    # ),
+    # dict(
+    #     name='consent_form',
+    #     display_name="Consent Form",
+    #     num_demo_participants=1,
+    #     app_sequence=['consent_form']
+    # ),
     # dict(
     #     name='real_effort',
     #     num_demo_participants=1,
     #     app_sequence=['real_effort']
     # ),
-    dict(
-        name='sliders_task',
-        display_name='Sliders Task',
-        num_demo_participants=1,
-        app_sequence=['consent_form', 'sliders_task', 'survey']
-    ),
     # dict(
-    #     name='stroop_task',
-    #     display_name='Stroop Task',
+    #     name='sliders_task',
+    #     display_name='Sliders Task',
     #     num_demo_participants=1,
-    #     app_sequence=['stroop_task']
+    #     app_sequence=['consent_form', 'sliders_task', 'survey']
+    # # ),
+    # dict(
+    #     name='cannot_participate',
+    #     display_name='Cannot Participate',
+    #     num_demo_participants=1,
+    #     app_sequence=['cannot_participate']
     # ),
     dict(
         name='stroop_task_keyboard',
         display_name='Stroop Task Keyboard',
         num_demo_participants=1,
-        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey'],
+        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey', 'cannot_participate', 'thank_you_finished'],
 
     ),
     # dict(

@@ -33,6 +33,9 @@ class WordsA(Page):
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
 
+    def before_next_page(self):
+        self.group.check_color_answers()
+
 
 class WordsB(Page):
     def is_displayed(self):
@@ -49,6 +52,9 @@ class WordsB(Page):
         return dict(
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
+
+    def before_next_page(self):
+        self.group.check_color_answers()
 
 
 class WordsC(Page):
@@ -67,6 +73,9 @@ class WordsC(Page):
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
 
+    def before_next_page(self):
+        self.group.check_color_answers()
+
 
 class MatchWordsA(Page):
     def is_displayed(self):
@@ -83,6 +92,9 @@ class MatchWordsA(Page):
         return dict(
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
+
+    def before_next_page(self):
+        self.group.check_color_answers()
 
 
 class MatchWordsB(Page):
@@ -101,6 +113,9 @@ class MatchWordsB(Page):
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
 
+    def before_next_page(self):
+        self.group.check_color_answers()
+
 
 class MatchWordsC(Page):
     def is_displayed(self):
@@ -117,6 +132,9 @@ class MatchWordsC(Page):
         return dict(
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
+
+    def before_next_page(self):
+        self.group.check_color_answers()
 
 
 class ConflictWordsA(Page):
@@ -135,6 +153,9 @@ class ConflictWordsA(Page):
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
 
+    def before_next_page(self):
+        self.group.check_color_answers()
+
 
 class ConflictWordsB(Page):
     def is_displayed(self):
@@ -151,6 +172,9 @@ class ConflictWordsB(Page):
         return dict(
             text_displayed_this_round=self.session.vars['text_displayed' + str(self.round_number)],
         )
+
+    def before_next_page(self):
+        self.group.check_color_answers()
 
 
 class ConflictWordsC(Page):
@@ -181,13 +205,12 @@ class Results(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
-    # def vars_for_template(self):
-    #     return dict(
-    #         player_in_all_rounds=self.player.in_all_rounds(),
-    #         total_sliders_correct=sum([p.total_sliders_correct for p in self.player.in_all_rounds()]),
-    #         total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
-    #     )
-
+    def vars_for_template(self):
+        return dict(
+            total_words_correct=sum([p.total_words_correct for p in self.player.in_all_rounds()]),
+            total_payoff=sum([p.payoff for p in self.player.in_all_rounds()]),
+            player_in_all_rounds=self.player.in_all_rounds(),
+        )
 
 page_sequence = [
     Start,

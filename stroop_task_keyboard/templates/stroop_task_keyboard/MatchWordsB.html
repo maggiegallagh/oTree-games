@@ -2,12 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    <strong> Round {{ subsession.round_number }} of {{ Constants.num_rounds }} </strong> - Stroop Task
+    Stroop Task
 {% endblock %}
 
-{% block content %}  Respond by typing the color, regardless of the text actually displayed... [instructions] </p>
+{% block content %}
+    <p>Welcome! For this job, you will be asked to solve as many Stroop problems as possible. In each problem, you will be presented with color words, such as blue, red, or green. The task is to name the color of the font the words are printed in, while ignoring the actual meaning of the word. For example, if you see the word BLUE written in black ink, as the example below, you should select the answer for black.</p>
+    <p><center>BLUE</center></p>
 
-    <p>This is a stroop task game.  You will be given several words.
+    <p>There will be two rounds, each lasting 30 seconds. In each round, you will receive [$0.10] for each correct answer. After completing two rounds of the task, you will be asked to complete a questionnaire, and receive an overview of the number of correct answers and your total payoff.
+      On the last page, you will be given a completion code. After completing this HIT, you will receive your reward.
+    </p><br/>
+
         <h1><font color = green> {{ text_displayed_this_round.0 }} </font></h1>
         <br/>
         {% formfield player.word1 %}
