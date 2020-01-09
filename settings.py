@@ -54,12 +54,12 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['my_simple_survey']
     # ),
-    dict(
-        name='counting_zeros_task',
-        display_name="Counting Zeros Task",
-        num_demo_participants=1,
-        app_sequence=['consent_form', 'counting_zeros_task', 'survey']
-    ),
+    # dict(
+    #     name='counting_zeros_task',
+    #     display_name="Counting Zeros Task",
+    #     num_demo_participants=1,
+    #     app_sequence=['consent_form', 'counting_zeros_task', 'survey']
+    # ),
     # dict(
     #     name='consent_form',
     #     display_name="Consent Form",
@@ -77,12 +77,12 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['consent_form', 'sliders_task', 'survey']
     # # ),
-    dict(
-        name='cannot_participate',
-        display_name='Cannot Participate',
-        num_demo_participants=1,
-        app_sequence=['cannot_participate']
-    ),
+    # dict(
+    #     name='cannot_participate',
+    #     display_name='Cannot Participate',
+    #     num_demo_participants=1,
+    #     app_sequence=['cannot_participate']
+    # ),
     dict(
         name='stroop_task_keyboard',
         display_name='Stroop Task Keyboard',
