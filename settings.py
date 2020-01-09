@@ -54,12 +54,12 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['my_simple_survey']
     # ),
-    # dict(
-    #     name='counting_zeros_task',
-    #     display_name="Counting Zeros Task",
-    #     num_demo_participants=1,
-    #     app_sequence=['consent_form', 'counting_zeros_task', 'survey']
-    # ),
+    dict(
+        name='counting_zeros_task',
+        display_name="Counting Zeros Task",
+        num_demo_participants=1,
+        app_sequence=['consent_form', 'counting_zeros_task', 'survey']
+    ),
     # dict(
     #     name='consent_form',
     #     display_name="Consent Form",
