@@ -77,12 +77,12 @@ SESSION_CONFIGS = [
     #     num_demo_participants=1,
     #     app_sequence=['consent_form', 'sliders_task', 'survey']
     # # ),
-    # dict(
-    #     name='cannot_participate',
-    #     display_name='Cannot Participate',
-    #     num_demo_participants=1,
-    #     app_sequence=['cannot_participate']
-    # ),
+    dict(
+        name='cannot_participate',
+        display_name='Cannot Participate',
+        num_demo_participants=1,
+        app_sequence=['cannot_participate']
+    ),
     dict(
         name='stroop_task_keyboard',
         display_name='Stroop Task Keyboard',
