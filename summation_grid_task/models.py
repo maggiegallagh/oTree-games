@@ -174,6 +174,7 @@ class Player(BasePlayer):
     is_winner = models.BooleanField()
     # payoff = models.CurrencyField()
 
+    # this_round_correct = models.IntegerField(initial=0)
     this_round_correct = models.IntegerField(initial=0)
     # current_round_correct_answer = models.IntegerField(initial=0)
 
