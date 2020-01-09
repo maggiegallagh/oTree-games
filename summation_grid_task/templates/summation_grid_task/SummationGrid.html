@@ -1,5 +1,6 @@
 {% extends "global/Page.html" %}
-{% load otree static %}
+<!--{% load otree static %}-->
+{% load staticfiles otree_tags %}
 
 {% block title %}
     <strong> Round {{ subsession.round_number }} of {{ Constants.num_rounds }} </strong> - Summation Grid Task
