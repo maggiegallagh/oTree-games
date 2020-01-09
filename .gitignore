@@ -106,3 +106,4 @@ venv.bak/
 /__temp_migrations/
 /a/
 /secrets.py
+.DS_Store
