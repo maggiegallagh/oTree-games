@@ -39,29 +39,29 @@ class SummationGrid(Page):
     def vars_for_template(self):
         if (self.participant.vars['treatment_group'] == "A" and self.round_number < 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(self.round_number)
+                image_path='summation_grid_task/{}.png'.format(self.round_number)
             )
         if (self.participant.vars['treatment_group2'] == "A" and self.round_number >= 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(self.round_number - 20)
+                image_path='summation_grid_task/{}.png'.format(self.round_number - 20)
             )
 
         if (self.participant.vars['treatment_group'] == "B" and self.round_number < 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(20 + self.round_number)
+                image_path='summation_grid_task/{}.png'.format(20 + self.round_number)
             )
         if (self.participant.vars['treatment_group2'] == "B" and self.round_number >= 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(self.round_number)
+                image_path='summation_grid_task/{}.png'.format(self.round_number)
             )
 
         if (self.participant.vars['treatment_group'] == "C" and self.round_number < 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(40 + self.round_number)
+                image_path='summation_grid_task/{}.png'.format(40 + self.round_number)
             )
         if (self.participant.vars['treatment_group2'] == "C" and self.round_number >= 21):
             return dict(
-                image_path='summation_grid_task/{}.PNG'.format(20 + self.round_number)
+                image_path='summation_grid_task/{}.png'.format(20 + self.round_number)
             )
 
     def before_next_page(self):
