@@ -34,7 +34,7 @@ incremental==17.5.0
 jmespath==0.9.3
 msgpack==0.6.1
 msgpack-python==0.5.6
-otree==2.5.3
+otree==2.5.5
 otree-boto2-shim==0.3.2
 otree-core==0.0.0b1
 psycopg2==2.8.4
