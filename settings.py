@@ -29,7 +29,7 @@ SESSION_CONFIGS = [
         name='summation_grid_task',
         display_name="Summation Grid",
         num_demo_participants=1,
-        app_sequence=['summation_grid_task']
+        app_sequence=['summation_grid_task', 'thank_you_finished']
     ),
     # dict(
     #     #     name='guess_two_thirds',
@@ -87,7 +87,7 @@ SESSION_CONFIGS = [
         name='stroop_task_keyboard',
         display_name='Stroop Task Keyboard',
         num_demo_participants=1,
-        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey', 'cannot_participate', 'thank_you_finished'],
+        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey', 'summation_grid_task',  'cannot_participate', 'thank_you_finished'],
 
     ),
     # dict(

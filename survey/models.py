@@ -20,11 +20,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    genderSlider = models.IntegerField(widget=widgets.Slider, min=-10, max=10, initial=0, label='Tell us whether you think men or women, on average, will perform better on this specific task. Indicate your answer on the scale below, where 0 means no gender difference, -10 means "Women perform better on this task", and 10 means "Men perform better on this task". The bigger the gender difference, the more you should move the slider in that direction. * ')
+    genderSlider = models.IntegerField(widget=widgets.Slider, min=-10, max=10, initial=0, label='Tell us whether you think men or women, on average, will perform better on this specific task. Indicate your answer on the scale below, where 0 means "Men and women perform similarly on this task", -10 means "Women perform better on this task", and 10 means "Men perform better on this task". The bigger the gender difference, the more you should move the slider in that direction. * ')
     f_name = models.StringField(label='What is your first name? Please enter your response below. If you are uncomfortable providing your first name, then you can leave this query blank.', blank=True)
     gender = models.StringField(widget=widgets.RadioSelect, label="What is your gender? Choose one of the following options: * ", choices =['Male','Female','None of the above','Prefer not to answer'])
     age = models.IntegerField(label='What is your age? * ')
-    race = models.StringField(widget=widgets.RadioSelect, label='What is your race? * ', choices = ['White', 'Black or African American','American Indian or Alaska Native','Asian','Latino or Latina','Pacific Islander','Some other race'])
+    race = models.StringField(widget=widgets.RadioSelect, label='What is your race? * ', choices = ['White', 'Black or African American','American Indian or Alaska Native','Asian','Latino or Latina','Pacific Islander','More than one of the above','Some other race'])
     optional_race = models.StringField(label='If you entered "Some other race" for the previous question, please enter the race here:', blank=True)
     # student = models.BooleanField(widget=widgets.RadioSelect, label="Are you currently a student? * ", choices=[[True, 'Yes'],[False, 'No']])
     # citizen = models.BooleanField(widget=widgets.RadioSelect, label="Are you a U.S. citizen?", choices=[[True, 'Yes'],[False, 'No']], blank=True)
