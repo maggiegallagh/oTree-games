@@ -25,7 +25,7 @@ class WordsA(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -45,7 +45,7 @@ class WordsB(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -65,7 +65,7 @@ class WordsC(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -85,7 +85,7 @@ class MatchWordsA(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -105,7 +105,7 @@ class MatchWordsB(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -125,7 +125,7 @@ class MatchWordsC(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -145,7 +145,7 @@ class ConflictWordsA(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -165,7 +165,7 @@ class ConflictWordsB(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
@@ -185,7 +185,7 @@ class ConflictWordsC(Page):
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
                    'word12', 'word13', 'word14', 'word15', 'word16', 'word17', 'word18', 'word19', 'word20']
 
-    timeout_seconds = 30
+    timeout_seconds = 5
     timer_text = 'Time left to complete this round:'
 
     def vars_for_template(self):
