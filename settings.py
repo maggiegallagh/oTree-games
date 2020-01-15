@@ -41,7 +41,7 @@ SESSION_CONFIGS = [
         name='survey',
         display_name='Survey',
         num_demo_participants=1,
-        app_sequence=['survey','thank_you_finished']
+        app_sequence=['survey', 'thank_you_finished']
     ),
     # dict(
     #     name='quiz',
@@ -87,7 +87,8 @@ SESSION_CONFIGS = [
         name='stroop_task_keyboard',
         display_name='Stroop Task Keyboard',
         num_demo_participants=1,
-        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey', 'summation_grid_task',  'cannot_participate', 'thank_you_finished'],
+        app_sequence=['consent_form', 'stroop_task_keyboard', 'survey', 'summation_grid_task', 'cannot_participate',
+                      'thank_you_finished'],
 
     ),
     # dict(
@@ -130,7 +131,7 @@ ROOMS = [
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = 'economics2019!'#environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
@@ -140,11 +141,14 @@ Here are some oTree games.
 SECRET_KEY = 'rs6c$8x=gvds%w-1vg==&wl497!tn29_s94s6e!15sepewn=sk'#os.environ.get('SECRET_KEY')
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree',
-                  'django.contrib.staticfiles']
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-
+INSTALLED_APPS = [
+    'otree',
+    'django.contrib.staticfiles'
+]
+AWS_ACCESS_KEY_ID = 'AKIAUR4FCSWIMCPORXYV'
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = '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'
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #
