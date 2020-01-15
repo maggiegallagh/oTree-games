@@ -12,7 +12,7 @@ class Start(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 0.5 * 60
+        self.participant.vars['expiry'] = time.time() + 0.2 * 60
 
 
 class StartRoundTwo(Page):
@@ -21,7 +21,7 @@ class StartRoundTwo(Page):
 
     def before_next_page(self):
         # user has 2 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 0.5 * 60
+        self.participant.vars['expiry'] = time.time() + 0.2 * 60
 
 
 class SummationGrid(Page):
@@ -87,10 +87,19 @@ class Results(Page):
         )
 
 
+class CompletionCode(Page):
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+
+    def app_after_this_page(self, upcoming_apps):
+        return 'thank_you_finished'
+
+
 page_sequence = [
     Start,
     StartRoundTwo,
     SummationGrid,
     #     ResultsWaitPage,
     Results,
+    CompletionCode,
 ]
