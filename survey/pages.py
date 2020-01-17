@@ -6,7 +6,7 @@ from .models import Constants
 
 class Survey(Page):
     form_model = 'player'
-    form_fields = ['genderSlider', 'f_name', 'gender', 'age', 'race', 'optional_race', 'address',
+    form_fields = ['f_name', 'gender', 'age', 'race', 'optional_race', 'address',
                    'degree', 'school_name', 'school_state', 'major', 'collegeGPA', 'HITS']
 
 # class CompletionCode(Page):

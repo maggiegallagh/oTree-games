@@ -168,8 +168,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    sum_component1 = models.FloatField(min=0, label="Enter the two numbers that sum to 10.0")
-    sum_component2 = models.FloatField(min=0, label="Enter the two numbers that sum to 10.0")
+    sum_component1 = models.FloatField(min=0, label="Enter one of the two numbers that sum to 10.0")
+    sum_component2 = models.FloatField(min=0, label="Enter the second number that sums to 10.0")
 
     is_winner = models.BooleanField()
     # payoff = models.CurrencyField()
