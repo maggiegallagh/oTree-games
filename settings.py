@@ -145,9 +145,9 @@ INSTALLED_APPS = [
     'otree',
     'django.contrib.staticfiles'
 ]
-AWS_ACCESS_KEY_ID = 'AKIAUR4FCSWIMCPORXYV'
+# AWS_ACCESS_KEY_ID = ''
 # AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = 'f6qPAGGpvA2G4OOhQdglCxlcEvwPkm1VU/QgeGCG'
+# AWS_SECRET_ACCESS_KEY = ''
 # AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
