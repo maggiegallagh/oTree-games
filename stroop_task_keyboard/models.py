@@ -17,7 +17,7 @@ each color they get correct. """
 class Constants(BaseConstants):
     name_in_url = 'stroop_task_keyboard'
     players_per_group = None
-    num_rounds = 4
+    num_rounds = 2
 
 
 class Subsession(BaseSubsession):
@@ -35,94 +35,86 @@ class Subsession(BaseSubsession):
                 if p.participant.vars['treatment_group'] == "C":
                     p.participant.vars['treatment_group2'] = random.choice(['A', 'B'])
 
-                print("set p.participant.vars['treatment_group]' to", p.participant.vars['treatment_group'], "for rounds 1-2")
-                print("set p.participant.vars['treatment_group2]' to", p.participant.vars['treatment_group2'], "for rounds 3-4")
+                print("set p.participant.vars['treatment_group]' to", p.participant.vars['treatment_group'], "for round 1")
+                print("set p.participant.vars['treatment_group2]' to", p.participant.vars['treatment_group2'], "for round 2")
 
-        self.session.vars["color_goals_key_A1"] = ['blue', 'green', 'red', 'purple', 'purple', 'purple', 'green', 'red', 'blue', 'red',
-                                                   'red', 'green', 'green', 'purple', 'blue', 'purple', 'green', 'green', 'red','purple']  # match words key (round 1 or 3)
-        self.session.vars["color_goals_key_A2"] = ['red', 'green', 'red', 'blue', 'blue', 'blue', 'purple', 'green', 'blue', 'green',
-                                                   'purple', 'blue', 'green', 'green', 'red', 'purple', 'purple', 'green', 'red','blue']  # conflict words key (round 2 or 4)
+        self.session.vars["color_goals_key_A"] = ['red', 'green', 'red', 'blue', 'blue', 'blue', 'purple', 'green', 'blue', 'green',
+                                                   'purple', 'blue', 'green', 'green', 'red', 'purple', 'purple', 'green', 'red','blue',
+                                                  'red','purple','blue','blue','green','purple','red','blue','green','red',
+                                                  'blue','green','green','purple','blue','red','blue','purple','green','red']  # conflict words key
 
-        self.session.vars["color_goals_key_B1"] = ['green', 'red', 'blue', 'green', 'purple', 'red', 'green', 'blue', 'green', 'green',
-                                                   'red', 'blue', 'red', 'blue', 'purple', 'purple', 'green', 'red', 'blue', 'purple']  # match words key (round 1 or 3)
-        self.session.vars["color_goals_key_B2"] = ['green', 'purple', 'purple', 'green', 'red', 'blue', 'green', 'blue', 'purple', 'red',
-                                                   'green', 'red', 'blue', 'purple', 'blue', 'green', 'red', 'red', 'blue', 'purple']  # conflict words key (round 2 or 4)
+        self.session.vars["color_goals_key_B"] = ['green', 'purple', 'purple', 'green', 'red', 'blue', 'green', 'blue', 'purple', 'red',
+                                                   'green', 'red', 'blue', 'purple', 'blue', 'green', 'red', 'red', 'blue', 'purple',
+                                                  'green', 'blue', 'purple', 'green', 'red', 'blue', 'purple', 'blue', 'green', 'blue',
+                                                  'red', 'purple', 'red', 'blue', 'green', 'green', 'red', 'blue', 'purple', 'green']  # conflict words key
 
-        self.session.vars["color_goals_key_C1"] = ['green', 'red', 'purple', 'red', 'green', 'purple', 'blue', 'purple', 'green', 'red',
-                                                   'purple', 'red', 'green', 'blue', 'green', 'green', 'red', 'purple', 'blue', 'blue']  # match words key (round 1 or 3)
-        self.session.vars["color_goals_key_C2"] = ['blue', 'blue', 'green', 'blue', 'red', 'purple', 'green', 'purple', 'blue', 'red',
-                                                   'blue', 'red', 'purple', 'blue', 'green', 'red', 'red', 'green', 'purple', 'green']  # conflict words key (round 2 or 4)
+        self.session.vars["color_goals_key_C"] = ['blue', 'blue', 'green', 'blue', 'red', 'purple', 'green', 'purple', 'blue', 'red',
+                                                   'blue', 'red', 'purple', 'blue', 'green', 'red', 'red', 'green', 'purple', 'green',
+                                                  'blue', 'red', 'purple', 'red', 'green', 'blue', 'purple', 'green', 'red', 'blue',
+                                                  'green', 'purple', 'purple', 'red', 'green', 'blue', 'purple', 'green', 'red', 'blue']  # conflict words key
 
         self.session.vars["word_correct_round1"] = []
         self.session.vars["word_correct_round2"] = []
-        self.session.vars["word_correct_round3"] = []
-        self.session.vars["word_correct_round4"] = []
 
 class Group(BaseGroup):
     def set_color_goals(self):
-        for i in range(4):
+        for i in range(2):
             n = i + 1
             self.session.vars['text_displayed' + str(n)] = []
         # makes 4 arrays to hold the goals and text displayed for the 6 rounds
 
         for p in self.get_players():
-            ## sets text displayed for words and match words rounds (rounds 1 and 3)
+            # now setting text displayed for conflict words rounds  to be incongruent with font color
             if p.participant.vars['treatment_group'] == "A":
-                self.session.vars['text_displayed' + str(1)] = self.session.vars["color_goals_key_A1"]
-
+                self.session.vars['text_displayed' + str(1)] = ['green', 'blue', 'purple', 'green', 'purple', 'red', 'green', 'red', 'red', 'blue',
+                                                                'blue', 'green', 'purple', 'red', 'purple', 'green', 'blue', 'red', 'blue', 'purple',
+                                                                'green','blue','red','purple','red','green','blue','green','purple','green',
+                                                                'purple','red','blue','green','red','green','purple','blue','red','blue']
             if p.participant.vars['treatment_group'] == "B":
-                self.session.vars['text_displayed' + str(1)] = self.session.vars["color_goals_key_B1"]
-            #
+                self.session.vars['text_displayed' + str(1)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple', 'red', 'green', 'red', 'purple',
+                                                                'blue', 'purple', 'purple', 'blue', 'red', 'red', 'blue', 'green', 'purple', 'red',
+                                                                'purple', 'red', 'blue', 'red', 'green', 'green', 'red', 'purple', 'blue', 'red',
+                                                                'purple', 'green', 'blue', 'purple', 'blue', 'red', 'green', 'purple', 'red', 'blue']
             if p.participant.vars['treatment_group'] == "C":
-                self.session.vars['text_displayed' + str(1)] = self.session.vars["color_goals_key_C1"]
+                self.session.vars['text_displayed' + str(1)] = ['red', 'green', 'blue', 'red', 'purple', 'blue', 'red', 'blue', 'green', 'green',
+                                                                'green', 'blue', 'green', 'red', 'blue', 'purple', 'blue', 'red', 'green', 'purple',
+                                                                'red', 'green', 'blue', 'green', 'blue', 'purple', 'red', 'blue', 'green', 'red',
+                                                                'purple', 'green', 'green', 'blue', 'red', 'purple', 'green', 'blue', 'green', 'red']
 
             if p.participant.vars['treatment_group2'] == "A":
-                self.session.vars['text_displayed' + str(3)] = self.session.vars["color_goals_key_A1"]
-
+                self.session.vars['text_displayed' + str(2)] = ['green', 'blue', 'purple', 'green', 'purple', 'red',
+                                                                'green', 'red', 'red', 'blue',
+                                                                'blue', 'green', 'purple', 'red', 'purple', 'green',
+                                                                'blue', 'red', 'blue', 'purple',
+                                                                'green', 'blue', 'red', 'purple', 'red', 'green',
+                                                                'blue', 'green', 'purple', 'green',
+                                                                'purple', 'red', 'blue', 'green', 'red', 'green',
+                                                                'purple', 'blue', 'red', 'blue']
             if p.participant.vars['treatment_group2'] == "B":
-                self.session.vars['text_displayed' + str(3)] = self.session.vars["color_goals_key_B1"]
-
+                self.session.vars['text_displayed' + str(2)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple',
+                                                                'red', 'green', 'red', 'purple',
+                                                                'blue', 'purple', 'purple', 'blue', 'red', 'red',
+                                                                'blue', 'green', 'purple', 'red',
+                                                                'purple', 'red', 'blue', 'red', 'green', 'green',
+                                                                'red', 'purple', 'blue', 'red',
+                                                                'purple', 'green', 'blue', 'purple', 'blue', 'red',
+                                                                'green', 'purple', 'red', 'blue']
             if p.participant.vars['treatment_group2'] == "C":
-                self.session.vars['text_displayed' + str(3)] = self.session.vars["color_goals_key_C1"]
-
-
-            # now setting text displayed for conflict words rounds (rounds 2 and 4) to be incongruent with font color
-                # conflict words text displayed for round 2 and 4
-            if p.participant.vars['treatment_group'] == "A":
-                self.session.vars['text_displayed' + str(2)] = ['green', 'blue', 'purple', 'green', 'purple', 'red', 'green', 'red', 'red', 'blue',
-                                                                'blue', 'green', 'purple', 'red', 'purple', 'green', 'blue', 'red', 'blue', 'purple']
-            if p.participant.vars['treatment_group'] == "B":
-                self.session.vars['text_displayed' + str(2)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple', 'red', 'green', 'red', 'purple',
-                                                                'blue', 'purple', 'purple', 'blue', 'red', 'red', 'blue', 'green', 'purple', 'red']
-            if p.participant.vars['treatment_group'] == "C":
-                self.session.vars['text_displayed' + str(2)] = ['red', 'green', 'blue', 'red', 'purple', 'blue', 'red', 'blue', 'green', 'green',
-                                                                'green', 'blue', 'green', 'red', 'blue', 'purple', 'blue', 'red', 'green', 'purple']
-
-                # now conflict words text displayed for round 6
-            if p.participant.vars['treatment_group2'] == "A":
-                self.session.vars['text_displayed' + str(4)] = ['green', 'blue', 'purple', 'green', 'purple', 'red', 'green', 'red', 'red', 'blue',
-                                                                'blue', 'green', 'purple', 'red', 'purple', 'green', 'blue', 'red', 'blue', 'purple']
-            if p.participant.vars['treatment_group2'] == "B":
-                self.session.vars['text_displayed' + str(4)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple', 'red', 'green', 'red', 'purple',
-                                                                'blue', 'purple', 'purple', 'blue', 'red', 'red', 'blue', 'green', 'purple', 'red']
-            if p.participant.vars['treatment_group2'] == "C":
-                self.session.vars['text_displayed' + str(4)] = ['red', 'green', 'blue', 'red', 'purple', 'blue', 'red', 'blue', 'green', 'green',
-                                                                'green', 'blue', 'green', 'red', 'blue', 'purple', 'blue', 'red', 'green', 'purple']
+                self.session.vars['text_displayed' + str(2)] = ['red', 'green', 'blue', 'red', 'purple', 'blue',
+                                                                'red', 'blue', 'green', 'green',
+                                                                'green', 'blue', 'green', 'red', 'blue', 'purple',
+                                                                'blue', 'red', 'green', 'purple',
+                                                                'red', 'green', 'blue', 'green', 'blue', 'purple',
+                                                                'red', 'blue', 'green', 'red',
+                                                                'purple', 'green', 'green', 'blue', 'red', 'purple',
+                                                                'green', 'blue', 'green', 'red']
 
             # printing color goals key and text displayed
             for i in range(2):  # printing for rounds 1-2
                 n = i + 1
                 print("For round ", str(n), 'the color goals are set to: ',
-                      self.session.vars['color_goals_key_' + p.participant.vars['treatment_group'] + str(n)], '\n')
+                      self.session.vars['color_goals_key_' + p.participant.vars['treatment_group']], '\n')
                 print("For round ", str(n), 'the text displayed will show: ', self.session.vars['text_displayed' + str(n)], '\n')
-
-            for i in range(2):  # printing for rounds 3-4
-                y = i + 3
-                k = i + 1
-                print("For round ", str(y), 'the color goals are set to: ',
-                      self.session.vars['color_goals_key_' + p.participant.vars['treatment_group2'] + str(k)], '\n')
-                print("For round ", str(y), 'the text displayed will show: ',
-                      self.session.vars['text_displayed' + str(k)], '\n')
 
     def check_color_answers(self):
         print('\n\nFOR ROUND', self.round_number)
@@ -132,19 +124,24 @@ class Group(BaseGroup):
                                     controller.word5, controller.word6, controller.word7, controller.word8,
                                     controller.word9, controller.word10, controller.word11, controller.word12,
                                     controller.word13, controller.word14, controller.word15, controller.word16,
-                                    controller.word17, controller.word18, controller.word19, controller.word20]
+                                    controller.word17, controller.word18, controller.word19, controller.word20,
+                                    controller.word21, controller.word22, controller.word23, controller.word24,
+                                    controller.word25, controller.word26, controller.word27, controller.word28,
+                                    controller.word29, controller.word30, controller.word31, controller.word32,
+                                    controller.word33, controller.word34, controller.word35, controller.word36,
+                                    controller.word37, controller.word38, controller.word39, controller.word40]
         for p in self.get_players():
-            if self.round_number < 3:
+            if self.round_number < 2:
                 if p.participant.vars['treatment_group'] == "A":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_A' + str(self.round_number)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_A'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_A[', i, '] was',
-                                  self.session.vars['color_goals_key_A' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_A'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For A self.session.vars[word_correct_round', self.round_number, '][', i, '] is ', self.session.vars["word_correct_round" + str(self.round_number)], '\n')
                             if i == 0:
@@ -187,27 +184,67 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_A[', i, '] was',
-                                  self.session.vars['color_goals_key_A' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_A'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For A self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
 
                 if p.participant.vars['treatment_group'] == "B":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_B' + str(self.round_number)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_B'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_B[', i, '] was',
-                                  self.session.vars['color_goals_key_B' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_B'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For B self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -251,26 +288,66 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_B[', i, '] was',
-                                  self.session.vars['color_goals_key_B' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_B'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For B self.session.vars[word_correct_round', self.round_number, '][', i, '] is ', self.session.vars["word_correct_round" + str(self.round_number)], '\n')
 
                 if p.participant.vars['treatment_group'] == "C":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_C' + str(self.round_number)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_C'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_C[', i, '] was',
-                                  self.session.vars['color_goals_key_C' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_C'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For C self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -314,28 +391,68 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_C[', i, '] was',
-                                  self.session.vars['color_goals_key_C' + str(self.round_number)][i],
+                                  self.session.vars['color_goals_key_C'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For C self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
 
-            if self.round_number >= 3:
+            if self.round_number >= 2:
                 if p.participant.vars['treatment_group2'] == "A":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_A' + str(self.round_number-2)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_A'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_A[', i, '] was',
-                                  self.session.vars['color_goals_key_A' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_A'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For A self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -379,27 +496,67 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_A[', i, '] was',
-                                  self.session.vars['color_goals_key_A' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_A'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For A self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
 
                 if p.participant.vars['treatment_group2'] == "B":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_B' + str(self.round_number-2)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_B'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_B[', i, '] was',
-                                  self.session.vars['color_goals_key_B' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_B'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For B self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -443,28 +600,67 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_B[', i, '] was',
-                                  self.session.vars['color_goals_key_B' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_B'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For B self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
 
-
                 if p.participant.vars['treatment_group2'] == "C":
-                    for i in range(20):
-                        if controller_color_answers[i] == self.session.vars['color_goals_key_C' + str(self.round_number-2)][i]:
+                    for i in range(40):
+                        if controller_color_answers[i] == self.session.vars['color_goals_key_C'][i]:
                             controller.total_words_correct += 1
                             controller.payoff += c(0.10)
                             self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                             print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                                   controller.total_words_correct, 'and controller.payoff is', controller.payoff)
                             print('color_goals_key_C[', i, '] was',
-                                  self.session.vars['color_goals_key_C' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_C'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For C self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -508,13 +704,53 @@ class Group(BaseGroup):
                                 controller.word19correct = True
                             if i == 19:
                                 controller.word20correct = True
+                            if i == 20:
+                                controller.word21correct = True
+                            if i == 21:
+                                controller.word22correct = True
+                            if i == 22:
+                                controller.word23correct = True
+                            if i == 23:
+                                controller.word24correct = True
+                            if i == 24:
+                                controller.word25correct = True
+                            if i == 25:
+                                controller.word26correct = True
+                            if i == 26:
+                                controller.word27correct = True
+                            if i == 27:
+                                controller.word28correct = True
+                            if i == 28:
+                                controller.word29correct = True
+                            if i == 29:
+                                controller.word30correct = True
+                            if i == 30:
+                                controller.word31correct = True
+                            if i == 31:
+                                controller.word32correct = True
+                            if i == 32:
+                                controller.word33correct = True
+                            if i == 33:
+                                controller.word34correct = True
+                            if i == 34:
+                                controller.word35correct = True
+                            if i == 35:
+                                controller.word36correct = True
+                            if i == 36:
+                                controller.word37correct = True
+                            if i == 37:
+                                controller.word38correct = True
+                            if i == 38:
+                                controller.word39correct = True
+                            if i == 39:
+                                controller.word40correct = True
 
                         else:
                             self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                             print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                                   controller.total_words_correct, 'and controller.payoff is still', controller.payoff)
                             print('color_goals_key_C[', i, '] was',
-                                  self.session.vars['color_goals_key_C' + str(self.round_number-2)][i],
+                                  self.session.vars['color_goals_key_C'][i],
                                   'and controller_color_answers[', i, '] was', controller_color_answers[i])
                             print('For C self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                                   self.session.vars["word_correct_round" + str(self.round_number)], '\n')
@@ -541,6 +777,26 @@ class Player(BasePlayer):
     word18 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
     word19 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
     word20 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word21 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word22 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word23 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word24 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word25 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word26 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word27 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word28 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word29 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word30 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word31 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word32 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word33 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word34 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word35 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word36 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word37 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word38 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word39 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
+    word40 = models.StringField(widget=widgets.RadioSelectHorizontal, label='', choices=['red', 'green', 'blue', 'purple'])
 
     treatment_group = models.StringField()
     # payoff = models.CurrencyField()
@@ -566,6 +822,26 @@ class Player(BasePlayer):
     word18correct = models.BooleanField(initial=False)
     word19correct = models.BooleanField(initial=False)
     word20correct = models.BooleanField(initial=False)
+    word21correct = models.BooleanField(initial=False)
+    word22correct = models.BooleanField(initial=False)
+    word23correct = models.BooleanField(initial=False)
+    word24correct = models.BooleanField(initial=False)
+    word25correct = models.BooleanField(initial=False)
+    word26correct = models.BooleanField(initial=False)
+    word27correct = models.BooleanField(initial=False)
+    word28correct = models.BooleanField(initial=False)
+    word29correct = models.BooleanField(initial=False)
+    word30correct = models.BooleanField(initial=False)
+    word31correct = models.BooleanField(initial=False)
+    word32correct = models.BooleanField(initial=False)
+    word33correct = models.BooleanField(initial=False)
+    word34correct = models.BooleanField(initial=False)
+    word35correct = models.BooleanField(initial=False)
+    word36correct = models.BooleanField(initial=False)
+    word37correct = models.BooleanField(initial=False)
+    word38correct = models.BooleanField(initial=False)
+    word39correct = models.BooleanField(initial=False)
+    word40correct = models.BooleanField(initial=False)
 
 
     def role(self):
