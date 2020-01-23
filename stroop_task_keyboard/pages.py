@@ -19,7 +19,7 @@ class StartRoundTwo(Page):
 
 class ConflictWordsA(Page):
     def is_displayed(self):
-        return (self.participant.vars['treatment_group'] == "A" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "A" and self.round_number == 2)
+        return (self.participant.vars['treatment_group1'] == "A" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "A" and self.round_number == 2)
 
     form_model = 'player'
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
@@ -41,7 +41,7 @@ class ConflictWordsA(Page):
 
 class ConflictWordsB(Page):
     def is_displayed(self):
-        return (self.participant.vars['treatment_group'] == "B" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "B" and self.round_number == 2)
+        return (self.participant.vars['treatment_group1'] == "B" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "B" and self.round_number == 2)
 
     form_model = 'player'
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
@@ -63,7 +63,7 @@ class ConflictWordsB(Page):
 
 class ConflictWordsC(Page):
     def is_displayed(self):
-        return (self.participant.vars['treatment_group'] == "C" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "C" and self.round_number == 2)
+        return (self.participant.vars['treatment_group1'] == "C" and self.round_number == 1) or (self.participant.vars['treatment_group2'] == "C" and self.round_number == 2)
 
     form_model = 'player'
     form_fields = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10', 'word11',
