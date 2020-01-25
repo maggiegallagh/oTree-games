@@ -25,18 +25,18 @@ class Subsession(BaseSubsession):
         # randomize player to treatments (one treatment group for rounds 1-2, a second, different treatment group for rounds 3-4)
         for p in self.get_players():
             if self.round_number == 1:
-                self.participant.vars['treatment_group1'] = random.choice(['A', 'B', 'C'])   #first treatment group for rounds 1-2
+                p.participant.vars['treatment_group1'] = random.choice(['A', 'B', 'C'])   #first treatment group for rounds 1-2
 
                     #now setting second, different treatment group for rounds 3-4
-                if self.participant.vars['treatment_group1'] == "A":
-                    self.participant.vars['treatment_group2'] = random.choice(['B', 'C'])
-                if self.participant.vars['treatment_group1'] == "B":
-                    self.participant.vars['treatment_group2'] = random.choice(['A', 'C'])
-                if self.participant.vars['treatment_group1'] == "C":
-                    self.participant.vars['treatment_group2'] = random.choice(['A', 'B'])
+                if p.participant.vars['treatment_group1'] == "A":
+                    p.participant.vars['treatment_group2'] = random.choice(['B', 'C'])
+                if p.participant.vars['treatment_group1'] == "B":
+                    p.participant.vars['treatment_group2'] = random.choice(['A', 'C'])
+                if p.participant.vars['treatment_group1'] == "C":
+                    p.participant.vars['treatment_group2'] = random.choice(['A', 'B'])
 
-                print("set self.player.participant.vars['treatment_group1]' to", self.player.participant.vars['treatment_group1'], "for round 1")
-                print("set self.player.participant.vars['treatment_group2]' to", self.player.participant.vars['treatment_group2'], "for round 2")
+                print("set p.participant.vars['treatment_group1]' to", p.participant.vars['treatment_group1'], "for round 1")
+                print("set p.participant.vars['treatment_group2]' to", p.participant.vars['treatment_group2'], "for round 2")
 
         self.session.vars["color_goals_key_A"] = ['red', 'green', 'red', 'blue', 'blue', 'blue', 'purple', 'green', 'blue', 'green',
                                                    'purple', 'blue', 'green', 'green', 'red', 'purple', 'purple', 'green', 'red','blue',
@@ -65,23 +65,23 @@ class Group(BaseGroup):
 
         for p in self.get_players():
         # now setting text displayed for conflict words rounds  to be incongruent with font color
-            if self.player.participant.vars['treatment_group1'] == "A":
+            if p.participant.vars['treatment_group1'] == "A":
                 self.session.vars['text_displayed' + str(1)] = ['green', 'blue', 'purple', 'green', 'purple', 'red', 'green', 'red', 'red', 'blue',
                                                                 'blue', 'green', 'purple', 'red', 'purple', 'green', 'blue', 'red', 'blue', 'purple',
                                                                 'green','blue','red','purple','red','green','blue','green','purple','green',
                                                                 'purple','red','blue','green','red','green','purple','blue','red','blue']
-            if self.player.participant.vars['treatment_group1'] == "B":
+            if p.participant.vars['treatment_group1'] == "B":
                 self.session.vars['text_displayed' + str(1)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple', 'red', 'green', 'red', 'purple',
                                                                 'blue', 'purple', 'purple', 'blue', 'red', 'red', 'blue', 'green', 'purple', 'red',
                                                                 'purple', 'red', 'blue', 'red', 'green', 'green', 'red', 'purple', 'blue', 'red',
                                                                 'purple', 'green', 'blue', 'purple', 'blue', 'red', 'green', 'purple', 'red', 'blue']
-            if self.player.participant.vars['treatment_group1'] == "C":
+            if p.participant.vars['treatment_group1'] == "C":
                 self.session.vars['text_displayed' + str(1)] = ['red', 'green', 'blue', 'red', 'purple', 'blue', 'red', 'blue', 'green', 'green',
                                                                 'green', 'blue', 'green', 'red', 'blue', 'purple', 'blue', 'red', 'green', 'purple',
                                                                 'red', 'green', 'blue', 'green', 'blue', 'purple', 'red', 'blue', 'green', 'red',
                                                                 'purple', 'green', 'green', 'blue', 'red', 'purple', 'green', 'blue', 'green', 'red']
 
-            if self.player.participant.vars['treatment_group2'] == "A":
+            if p.participant.vars['treatment_group2'] == "A":
                 self.session.vars['text_displayed' + str(2)] = ['green', 'blue', 'purple', 'green', 'purple', 'red',
                                                                 'green', 'red', 'red', 'blue',
                                                                 'blue', 'green', 'purple', 'red', 'purple', 'green',
@@ -90,7 +90,7 @@ class Group(BaseGroup):
                                                                 'blue', 'green', 'purple', 'green',
                                                                 'purple', 'red', 'blue', 'green', 'red', 'green',
                                                                 'purple', 'blue', 'red', 'blue']
-            if self.player.participant.vars['treatment_group2'] == "B":
+            if p.participant.vars['treatment_group2'] == "B":
                 self.session.vars['text_displayed' + str(2)] = ['purple', 'blue', 'green', 'red', 'blue', 'purple',
                                                                 'red', 'green', 'red', 'purple',
                                                                 'blue', 'purple', 'purple', 'blue', 'red', 'red',
@@ -99,7 +99,7 @@ class Group(BaseGroup):
                                                                 'red', 'purple', 'blue', 'red',
                                                                 'purple', 'green', 'blue', 'purple', 'blue', 'red',
                                                                 'green', 'purple', 'red', 'blue']
-            if self.player.participant.vars['treatment_group2'] == "C":
+            if p.participant.vars['treatment_group2'] == "C":
                 self.session.vars['text_displayed' + str(2)] = ['red', 'green', 'blue', 'red', 'purple', 'blue',
                                                                 'red', 'blue', 'green', 'green',
                                                                 'green', 'blue', 'green', 'red', 'blue', 'purple',
@@ -113,7 +113,7 @@ class Group(BaseGroup):
         for i in range(2):  # printing for rounds 1-2
             n = i + 1
             print("For round ", str(n), 'the color goals are set to: ',
-                  self.session.vars['color_goals_key_' + self.player.participant.vars['treatment_group'+str(n)]], '\n')
+                  self.session.vars['color_goals_key_' + p.participant.vars['treatment_group'+str(n)]], '\n')
             print("For round ", str(n), 'the text displayed will show: ', self.session.vars['text_displayed' + str(n)], '\n')
 
     def check_color_answers(self):
@@ -122,121 +122,121 @@ class Group(BaseGroup):
         for p in self.get_players():
             num_players += 1
             # p = self.get_player_by_role('Controller')
-            player_color_answers = [self.player.word1, self.player.word2, self.player.word3, self.player.word4, self.player.word5, self.player.word6, self.player.word7, self.player.word8, self.player.word9, self.player.word10, self.player.word11, self.player.word12,
-                                   self.player.word13, self.player.word14, self.player.word15, self.player.word16, self.player.word17, self.player.word18, self.player.word19, self.player.word20, self.player.word21, self.player.word22, self.player.word23,
-                                   self.player.word24, self.player.word25, self.player.word26, self.player.word27, self.player.word28, self.player.word29, self.player.word30, self.player.word31, self.player.word32, self.player.word33, self.player.word34,
-                                   self.player.word35, self.player.word36, self.player.word37, self.player.word38, self.player.word39, self.player.word40]
+            p_color_answers = [p.word1, p.word2, p.word3, p.word4, p.word5, p.word6, p.word7, p.word8, p.word9, p.word10, p.word11, p.word12,
+                                   p.word13, p.word14, p.word15, p.word16, p.word17, p.word18, p.word19, p.word20, p.word21, p.word22, p.word23,
+                                   p.word24, p.word25, p.word26, p.word27, p.word28, p.word29, p.word30, p.word31, p.word32, p.word33, p.word34,
+                                   p.word35, p.word36, p.word37, p.word38, p.word39, p.word40]
             check_answers_array = []
 
-            if self.player.participant.vars['treatment_group'+str(self.round_number)] == "A":
+            if p.participant.vars['treatment_group'+str(self.round_number)] == "A":
                 check_answers_array = self.session.vars['color_goals_key_A']
-            if self.player.participant.vars['treatment_group'+str(self.round_number)] == "B":
+            if p.participant.vars['treatment_group'+str(self.round_number)] == "B":
                 check_answers_array = self.session.vars['color_goals_key_B']
-            if self.player.participant.vars['treatment_group'+str(self.round_number)] == "C":
+            if p.participant.vars['treatment_group'+str(self.round_number)] == "C":
                 check_answers_array = self.session.vars['color_goals_key_C']
             print("check_answers_array for round ", self.round_number, " is ", check_answers_array)
-
-
             for i in range(40):
-                if player_color_answers[i] == check_answers_array[i]:
-                    self.player.total_words_correct += 1
-                    self.player.payoff += c(0.10)
+                if p_color_answers[i] == check_answers_array[i]:
+                    p.total_words_correct += 1
+                    p.payoff += c(0.10)
                     self.session.vars["word_correct_round" + str(self.round_number)].append(True)
                     print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
-                          self.player.total_words_correct, 'and self.player.payoff is', self.playerpayoff)
+                          p.total_words_correct, 'and p.payoff is', p.payoff)
                     print('color_goals_key[', i, '] was',
-                          "check_answers_array[", i, "] was ", check_answers_array[i], 'and player_color_answers[', i, '] was', player_color_answers[i])
+                          "check_answers_array[", i, "] was ", check_answers_array[i], 'and player_color_answers[', i, '] was', p_color_answers[i])
                     print('self.session.vars[word_correct_round', self.round_number, '][', i, '] is ', self.session.vars["word_correct_round" + str(self.round_number)], '\n')
                     if i == 0:
-                        self.player.word1correct = True
+                        p.word1correct = True
                     if i == 1:
-                        self.player.word2correct = True
+                        p.word2correct = True
                     if i == 2:
-                        self.player.word3correct = True
+                        p.word3correct = True
                     if i == 3:
-                        self.player.word4correct = True
+                        p.word4correct = True
                     if i == 4:
-                        self.player.word5correct = True
+                        p.word5correct = True
                     if i == 5:
-                        self.player.word6correct = True
+                        p.word6correct = True
                     if i == 6:
-                        self.player.word7correct = True
+                        p.word7correct = True
                     if i == 7:
-                        self.player.word8correct = True
+                        p.word8correct = True
                     if i == 8:
-                        self.player.word9correct = True
+                        p.word9correct = True
                     if i == 9:
-                        self.player.word10correct = True
+                        p.word10correct = True
                     if i == 10:
-                        self.player.word11correct = True
+                        p.word11correct = True
                     if i == 11:
-                        self.player.word12correct = True
+                        p.word12correct = True
                     if i == 12:
-                        self.player.word13correct = True
+                        p.word13correct = True
                     if i == 13:
-                        self.player.word14correct = True
+                        p.word14correct = True
                     if i == 14:
-                        self.player.word15correct = True
+                        p.word15correct = True
                     if i == 15:
-                        self.player.word16correct = True
+                        p.word16correct = True
                     if i == 16:
-                        self.player.word17correct = True
+                        p.word17correct = True
                     if i == 17:
-                        self.player.word18correct = True
+                        p.word18correct = True
                     if i == 18:
-                        self.player.word19correct = True
+                        p.word19correct = True
                     if i == 19:
-                        self.player.word20correct = True
+                        p.word20correct = True
                     if i == 20:
-                        self.player.word21correct = True
+                        p.word21correct = True
                     if i == 21:
-                        self.player.word22correct = True
+                        p.word22correct = True
                     if i == 22:
-                        self.player.word23correct = True
+                        p.word23correct = True
                     if i == 23:
-                        self.player.word24correct = True
+                        p.word24correct = True
                     if i == 24:
-                        self.player.word25correct = True
+                        p.word25correct = True
                     if i == 25:
-                        self.player.word26correct = True
+                        p.word26correct = True
                     if i == 26:
-                        self.player.word27correct = True
+                        p.word27correct = True
                     if i == 27:
-                        self.player.word28correct = True
+                        p.word28correct = True
                     if i == 28:
-                        self.player.word29correct = True
+                        p.word29correct = True
                     if i == 29:
-                        self.player.word30correct = True
+                        p.word30correct = True
                     if i == 30:
-                        self.player.word31correct = True
+                        p.word31correct = True
                     if i == 31:
-                        self.player.word32correct = True
+                        p.word32correct = True
                     if i == 32:
-                        self.player.word33correct = True
+                        p.word33correct = True
                     if i == 33:
-                        self.player.word34correct = True
+                        p.word34correct = True
                     if i == 34:
-                        self.player.word35correct = True
+                        p.word35correct = True
                     if i == 35:
-                        self.player.word36correct = True
+                        p.word36correct = True
                     if i == 36:
-                        self.player.word37correct = True
+                        p.word37correct = True
                     if i == 37:
-                        self.player.word38correct = True
+                        p.word38correct = True
                     if i == 38:
-                        self.player.word39correct = True
+                        p.word39correct = True
                     if i == 39:
-                        self.player.word40correct = True
-
+                        p.word40correct = True
                 else:
                     self.session.vars["word_correct_round" + str(self.round_number)].append(False)
                     print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
-                          self.playertotal_words_correct, 'and self.player.payoff is still', self.player.payoff)
-                    print('check_answers_array[', i, '] was', check_answers_array[i], 'and p_color_answers[', i, '] was', player_color_answers[i])
+                          p.total_words_correct, 'and p.payoff is still', p.payoff)
+                    print('check_answers_array[', i, '] was', check_answers_array[i], 'and p_color_answers[', i, '] was', p_color_answers[i])
                     print('self.session.vars[word_correct_round', self.round_number, '][', i, '] is ',
                           self.session.vars["word_correct_round" + str(self.round_number)], '\n')
-        divisor = num_players - self.id_in_group + 1
-        p.payoff = p.payoff/divisor
+# def fix_payoff():
+#         divisor = num_players - p.id_in_group + 1
+#         print('p.id_in_group is ', p.id_in_group, 'and divisor is ', divisor, '\n')
+#         p.payoff = p.payoff/divisor
+#         print('payoff after divisor is ', p.payoff)
 
 
 
