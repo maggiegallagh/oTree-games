@@ -35,10 +35,26 @@ class Subsession(BaseSubsession):
                 if p.participant.vars['treatment_group1'] == "C":
                     p.participant.vars['treatment_group2'] = random.choice(['A', 'B'])
 
-                p.participant.vars["word_correct_round1"] = []
-                p.participant.vars["word_correct_round2"] = []
                 p.participant.vars["check_answers_array1"] = []
                 p.participant.vars["check_answers_array2"] = []
+
+                p.participant.vars["played_before1"] = [False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False]
+                p.participant.vars["played_before2"] = [False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False]
+
+                p.participant.vars["word_correct_round1"] = [False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False]
+                p.participant.vars["word_correct_round2"] = [False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False,
+                                                        False, False, False, False, False, False, False, False, False, False]
 
                 print("set p.participant.vars['treatment_group1]' to", p.participant.vars['treatment_group1'], "for round 1")
                 print("set p.participant.vars['treatment_group2]' to", p.participant.vars['treatment_group2'], "for round 2")
@@ -124,13 +140,9 @@ class Group(BaseGroup):
         print('\n\nFOR ROUND', self.round_number)
         # players = self.get_players()
         # p = self.get_player_by_role('Controller')
-        check_answers_array = []
+        # check_answers_array = []
         # num_correct = 0
         for p in self.get_players():
-            p_color_answers = [p.word1, p.word2, p.word3, p.word4, p.word5, p.word6, p.word7, p.word8, p.word9, p.word10, p.word11, p.word12,
-                               p.word13, p.word14, p.word15, p.word16, p.word17, p.word18, p.word19, p.word20, p.word21, p.word22, p.word23,
-                               p.word24, p.word25, p.word26, p.word27, p.word28, p.word29, p.word30, p.word31, p.word32, p.word33, p.word34,
-                               p.word35, p.word36, p.word37, p.word38, p.word39, p.word40]
             if p.participant.vars['treatment_group'+str(self.round_number)] == "A":
                 p.participant.vars["check_answers_array1"+str(self.round_number)] = self.session.vars['color_goals_key_A']
             if p.participant.vars['treatment_group'+str(self.round_number)] == "B":
@@ -139,16 +151,28 @@ class Group(BaseGroup):
                 p.participant.vars["check_answers_array1"+str(self.round_number)] = self.session.vars['color_goals_key_C']
             print("p.participant.vars check_answers_array for round ", self.round_number, " is ", p.participant.vars["check_answers_array1"+str(self.round_number)])
 
+        for p in self.get_players():
+            p_color_answers = [p.word1, p.word2, p.word3, p.word4, p.word5, p.word6, p.word7, p.word8, p.word9, p.word10, p.word11, p.word12,
+                               p.word13, p.word14, p.word15, p.word16, p.word17, p.word18, p.word19, p.word20, p.word21, p.word22, p.word23,
+                               p.word24, p.word25, p.word26, p.word27, p.word28, p.word29, p.word30, p.word31, p.word32, p.word33, p.word34,
+                               p.word35, p.word36, p.word37, p.word38, p.word39, p.word40]
             for i in range(40):
                 if p_color_answers[i] == p.participant.vars["check_answers_array1"+str(self.round_number)][i]:
-                    p.total_words_correct += 1
-                    p.payoff += c(0.10)
-                    p.participant.vars["word_correct_round" + str(self.round_number)].append(True)
+                    print('played_before 1st = ', p.participant.vars["played_before" + str(self.round_number)][i] )
+                    if p.participant.vars["played_before" + str(self.round_number)][i] == False:
+                        p.total_words_correct += 1
+                        p.payoff += c(0.10)
+                    p.participant.vars["played_before" + str(self.round_number)][i] = True
+                    p.participant.vars["word_correct_round" + str(self.round_number)] = True
+                    print('played_before 2nd = ', p.participant.vars["played_before" + str(self.round_number)][i])
+
                     # print('For word', i + 1, 'color was correct. Controller.total_words_correct is',
                     #       p.total_words_correct, 'and p.payoff is', p.payoff)
                     # print('color_goals_key[', i, '] was',
                     #       "check_answers_array[", i, "] was ", p.participant.vars["check_answers_array1"+str(self.round_number)][i], 'and p_color_answers[', i, '] was', p_color_answers[i])
-                    print('p.participant.vars["word_correct_round', self.round_number, '][', i, '] is ', p.participant.vars["word_correct_round" + str(self.round_number)][i], '\n')
+                    print('word_correct_round', self.round_number, '[', i, '] is True')
+                    # print('word_correct_round', self.round_number, '[', i, '] is ', p.participant.vars["word_correct_round" + str(self.round_number), '\n')
+
                     if i == 0:
                         p.word1correct = True
                     if i == 1:
@@ -229,14 +253,17 @@ class Group(BaseGroup):
                         p.word39correct = True
                     if i == 39:
                         p.word40correct = True
-
                 else:
-                    p.participant.vars["word_correct_round" + str(self.round_number)].append(False)
+                    # print('played_before 1st = ', p.participant.vars["played_before" + str(self.round_number)][i] )
+                    # p.participant.vars["word_correct_round" + str(self.round_number)] = False
+                    # p.participant.vars["played_before" + str(self.round_number)][i] = True
+                    # print('played_before 2nd = ', p.participant.vars["played_before" + str(self.round_number)][i] )
                     # print('For word', i + 1, 'color was incorrect. Controller.total_words_correct is still',
                     #       p.total_words_correct, 'and p.payoff is still', p.payoff)
                     # print('check_answers_array[', i, '] was', check_answers_array[i], 'and p_color_answers[', i, '] was', p_color_answers[i])
-                    print('p.participant.vars["word_correct_round', self.round_number, '][', i, '] is ',
-                          p.participant.vars["word_correct_round" + str(self.round_number)][i], '\n')
+                    print('word_correct_round', self.round_number, '[', i, '] is False')
+                    # print('p.participant.vars["word_correct_round', self.round_number, '][', i, '] is ',
+                    #       p.participant.vars["word_correct_round" + str(self.round_number)][i], '\n')
             # for i in self.session.vars["word_correct_round" + str(self.round_number)]:
             #     if self.session.vars["word_correct_round" + str(self.round_number)][i] == True:
             #         num_correct += 1
