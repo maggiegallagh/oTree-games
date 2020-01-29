@@ -25,12 +25,6 @@ SESSION_CONFIG_DEFAULTS = dict(
                 'Comparator': "EqualTo",
                 'LocaleValues': [{'Country': "US"}]
             },
-            {
-                'QualificationTypeId': "3PDP75MATNEQJU2M3DN7WU0F5763V4",
-                'Comparator': "EqualTo",
-                'IntegerValues':[1]
-            },
-
         ]
         # grant_qualification_id='YOUR_QUALIFICATION_ID_HERE', # to prevent retakes
     ),
