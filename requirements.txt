@@ -16,7 +16,7 @@ constantly==15.1.0
 cryptography==2.8
 daphne==2.3.0
 dj-database-url==0.5.0
-Django==2.2.4
+Django==2.2.13
 django-admin==2.0.0
 django-excel-response2==2.0.8
 django-idmap==1.0.3
